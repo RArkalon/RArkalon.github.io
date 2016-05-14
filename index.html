@@ -1,101 +1,151 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
     <head>
         <meta charset="utf-8">
-        <title>particles.js</title>
         <meta name="description" content="Robin Dudek's Blog WebSite hosted on Github">
         <meta name="author" content="Robin Dudek" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <title>Robin Dudek</title>
 
-        <!-- Bootstrap Core CSS -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
         <!-- Custom CSS -->
-        <link href="css/logo-nav.css" rel="stylesheet">
-	    <link rel="stylesheet" media="screen" href="css/style.css">
+        <link href="css/simple-sidebar.css" rel="stylesheet">
+	    <link href="css/style.css" rel="stylesheet">
+
+        <!-- Bootstrap Core CSS -->
+        <link href="css/bootstrap.css" rel="stylesheet">
 
     </head>
     <body>
 
-        <!-- particles.js container -->
-        <div id="particles-js"></div>
-    	<!-- Navigation -->
-	    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-	        <div class="container">
-	            <!-- Brand and toggle get grouped for better mobile display -->
-	            <div class="navbar-header">
-	                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-	                    <span class="sr-only">Toggle navigation</span>
-	                    <span class="icon-bar"></span>
-	                    <span class="icon-bar"></span>
-	                    <span class="icon-bar"></span>
-	                </button>
-	                <a class="navbar-brand" href="#">
-	                    <img src="http://placehold.it/150x50&text=Logo" alt="">
-	                </a>
-	            </div>
-	            <!-- Collect the nav links, forms, and other content for toggling -->
-	            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	                <ul class="nav navbar-nav">
-	                    <li>
-	                        <a href="#">About</a>
-	                    </li>
-	                    <li>
-	                        <a href="#">Services</a>
-	                    </li>
-	                    <li>
-	                        <a href="#">Contact</a>
-	                    </li>
-	                </ul>
-	            </div>
-	            <!-- /.navbar-collapse -->
+    	
+        <div id="wrapper">
 
-	        </div>
-	        <!-- /.container -->
-	    </nav>
-	        <!-- Page Content -->
-    	<div class="container">
-        	<div class="row">
-            	<div class="col-lg-12">
-        			<div class="card">
-            			<div class="card--content">
-            				<img src="images/HeisenBear.jpg">
-           				</div>
-        			</div>
+            <!-- Sidebar -->
+            <div id="sidebar-wrapper">
+                <ul class="sidebar-nav">
+                    <li class="sidebar-brand">
+                        <a class="menu" href="#">
+                            Start Bootstrap
+                        </a>
+                    </li>
+                    <li>
+                        <a class="menu" href="#">Dashboard</a>
+                    </li>
+                    <li>
+                        <a class="menu" href="#">Shortcuts</a>
+                    </li>
+                    <li>
+                        <a class="menu" href="#">Overview</a>
+                    </li>
+                    <li>
+                        <a class="menu" href="#">Events</a>
+                    </li>
+                    <li>
+                        <a class="menu" href="#">About</a>
+                    </li>
+                    <li>
+                        <a class="menu" href="#">Services</a>
+                    </li>
+                    <li>
+                        <a class="menu" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /#sidebar-wrapper -->
+
+            <!-- Page Content -->
+            <div id="page-content-wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card--content">
+                                    <img src="images/HeisenBear.jpg">
+                                </div>
+                            </div>
+                            <a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><</a>
+                        </div>
+                    </div>
                 </div>
-        	</div>
-    	</div>
-    
+            </div>
+            <!-- /#page-content-wrapper -->
+        </div>
+
     
         <!-- scripts -->
         <script src="js/card.js"></script>
-        <script src="js/particles.js"></script>
-        <script src="js/app.js"></script>
     
         <!-- jQuery -->
         <script src="js/jquery.js"></script>
     
         <!-- Bootstrap Core JavaScript -->
-        <script src="js/bootstrap.min.js"></script>
+        <script src="js/bootstrap.js"></script>
     
+
+
+        <!-- Menu Toggle Script -->
         <script>
-          var count_particles, stats, update;
-          stats = new Stats;
-          stats.setMode(0);
-          stats.domElement.style.position = 'absolute';
-          stats.domElement.style.left = '0px';
-          stats.domElement.style.top = '0px';
-          document.body.appendChild(stats.domElement);
-          count_particles = document.querySelector('.js-count-particles');
-          update = function() {
-            stats.begin();
-            stats.end();
-            if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
-              count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
-            }
-            requestAnimationFrame(update);
-          };
-          requestAnimationFrame(update);
+        $("#menu-toggle").click(function(e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+        </script>
+
+        <!-- Card Script -->
+        <script>
+        $(document).ready(function() {
+  
+          // Set sticker height + hover animation
+          var setCardStyle = function(){
+
+            var card = $('.card');
+            var cardWidth = card.width();
+            var cardHeight = cardWidth/2.5;
+            
+            // Set scale 
+            var cardContentScale = cardWidth/700;
+            card.css('transform','translate3d(0,0,0) matrix3d(1,0,0.00,0.00,0.00,1,0.00,0,0,0,1,0,0,0,0,1) scale('+cardContentScale+')');
+            $('.card h1').css('font-size', cardContentScale*40+'px');
+            $('.card span').css('font-size', cardContentScale*16+'px');
+            $('.card li a').css('font-size', cardContentScale*16+'px');
+            
+            // Set height
+            card.height(cardHeight);
+            
+            // Generate hover effect
+            card
+              .mouseover(function(){
+                card.mousemove(function(e){
+                  // Find mouse X position in card
+                  mouseScreenPositionX = e.pageX;
+                  cardLeftPosition = card.offset().left;
+                  mousePosX = ((mouseScreenPositionX - cardLeftPosition)/cardWidth);
+                  // Calculate maxtrix3d X value
+                  matrix3dX = ((mousePosX/10000)*1.5)-0.0001;
+                  
+                  // Find mouse Y position in card
+                  mouseScreenPositionY = e.pageY;
+                  cardTopPosition = card.offset().top;
+                  mousePosY = ((mouseScreenPositionY-cardTopPosition)/cardHeight);
+                  // Calculate maxtrix3d Y value
+                  matrix3dY = ((mousePosY/10000)*1.65)-0.0001;
+                  
+                  // Set CSS
+                  card.css('transform', 'translate3d(0,-5px,0) matrix3d(1,0,0.00,'+matrix3dX+',0.00,1,0.00,'+matrix3dY+',0,0,1,0,0,0,0,1) scale('+cardContentScale*1.04+')');
+                });
+              })
+              .mouseout(function(){
+                // Unset CSS on mouseleave
+                card.css('transform','translate3d(0,0,0) matrix3d(1,0,0.00,0.00,0.00,1,0.00,0,0,0,1,0,0,0,0,1) scale('+cardContentScale+')');
+              });
+          }
+          
+          // Execute function
+          setCardStyle();
+          $(window).on('resize', function(){
+              setCardStyle();
+          })
+        });
         </script>
 
     </body>

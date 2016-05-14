@@ -30,7 +30,7 @@ li{list-style:none}
 html,body{ 
 	width:100%;
 	height:100%;
-	background:#111;
+	background-color:#222;
   z-index: 1;
 }
 
@@ -52,20 +52,22 @@ body {
   font:normal 75% Arial, Helvetica, sans-serif;
 }
 
+.menu {
+    font:  #EFA25E;
+}
 /* -------- card js --------- */
 .card {
-  top: 50px;
-  bottom: 50px;
-  font-family: 'Open Sans';
-  width: 100%;
-  max-width: 700px;
-  min-height: 200px;
-  margin: 0 auto;
-  border-radius: 7px;
-  background: linear-gradient(left bottom, #DD2476, #FF512F);
-  box-shadow: 0 0 20px rgba(#000000,.2);
-  overflow: hidden;
-  transition: all ease .5s;
+    top: 50px;
+    bottom: 50px;
+    width: 100%;
+    max-width: 700px;
+    min-height: 200px;
+    margin: 0 auto;
+    border-radius: 7px;
+    background: linear-gradient(left bottom, #DD2476, #FF512F);
+    box-shadow: 0 0 20px rgba(#000000,.2);
+    overflow: hidden;
+    transition: all ease .5s;
 }
   .card:hover {
     box-shadow: 0 20px 40px rgba(#000000,.15);
@@ -80,17 +82,23 @@ body {
     transform: translate3d(-50%,-50%,0);
   }
 
-
+/* ----- Toggle menu button ----- */
+#menu-toggle {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
 
 /* ---- particles.js container ---- */
 
 #particles-js{
-  width: 100%;
-  height: 100%;
-  background-image: url('');
-  background-size: cover;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  z-index: 0;
-  position: fixed;
+    width: 100%;
+    height: 100%;
+    background-image: url('');
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    z-index: 0;
+    position: fixed;
 }
+
