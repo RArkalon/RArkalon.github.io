@@ -1,3 +1,6 @@
+// Import font
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,800);
+
 /* =============================================================================
    HTML5 CSS Reset Minified - Eric Meyer
    ========================================================================== */
@@ -28,59 +31,55 @@ html,body{
 	width:100%;
 	height:100%;
 	background:#111;
+  z-index: 1;
 }
 
 html{
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-body{
-  font:normal 75% Arial, Helvetica, sans-serif;
-}
 
 canvas{
   display:block;
   vertical-align:bottom;
 }
 
-
-/* ---- stats.js ---- */
-
-.count-particles{
-  background: #000022;
-  position: absolute;
-  top: 48px;
-  left: 0;
-  width: 80px;
-  color: #13E8E9;
-  font-size: .8em;
-  text-align: left;
-  text-indent: 4px;
-  line-height: 14px;
-  padding-bottom: 2px;
-  font-family: Helvetica, Arial, sans-serif;
-  font-weight: bold;
+* {
+  box-sizing: border-box;
 }
 
-.js-count-particles{
-  font-size: 1.1em;
+body {
+  font:normal 75% Arial, Helvetica, sans-serif;
 }
 
-#stats,
-.count-particles{
-  -webkit-user-select: none;
-  margin-top: 5px;
-  margin-left: 5px;
-}
-
-#stats{
-  border-radius: 3px 3px 0 0;
+/* -------- card js --------- */
+.card {
+  top: 50px;
+  bottom: 50px;
+  font-family: 'Open Sans';
+  width: 100%;
+  max-width: 700px;
+  min-height: 200px;
+  margin: 0 auto;
+  border-radius: 7px;
+  background: linear-gradient(left bottom, #DD2476, #FF512F);
+  box-shadow: 0 0 20px rgba(#000000,.2);
   overflow: hidden;
+  transition: all ease .5s;
 }
+  .card:hover {
+    box-shadow: 0 20px 40px rgba(#000000,.15);
+    transition: all ease .1s;
+  }
+  
+  .card--content {
+    position: absolute;
+    width: 80%;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%,-50%,0);
+  }
 
-.count-particles{
-  border-radius: 0 0 3px 3px;
-}
 
 
 /* ---- particles.js container ---- */
@@ -88,9 +87,10 @@ canvas{
 #particles-js{
   width: 100%;
   height: 100%;
-  background-color: #b61924;
   background-image: url('');
   background-size: cover;
   background-position: 50% 50%;
   background-repeat: no-repeat;
+  z-index: 0;
+  position: fixed;
 }
