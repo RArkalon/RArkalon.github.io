@@ -52,6 +52,31 @@ body {
   background-position: 50% 50%;
   background-repeat: no-repeat;
 }
+
+/* =============================================================================
+   Scrollbar
+   ========================================================================== */
+
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #333333;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	border-radius: 3px;
+  background: #888888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555555;
+}
 /* =============================================================================
 COLORS
 ============================================================================= */
