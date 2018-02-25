@@ -1,11 +1,26 @@
 /* =============================================================================
    My CSS
    ========================================================================== */
+*, :after, :before, input[type=search] {
+-webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+        box-sizing: border-box;
+}
 
 body {
   color: #fff;
   background: rgba(23, 23, 23, 1);
 }
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.mar40 {
+  margin: 40px;
+}
+
 .row {
   margin: 0;
 }
@@ -31,6 +46,8 @@ body {
   text-align: center;
 }
 
+
+
 #winston {
   height: 400px;
   background-size: 100% auto;
@@ -54,6 +71,66 @@ body {
 }
 
 /* =============================================================================
+   Top Navbar
+   ========================================================================== */
+   .navbar-fixed {
+       top: 0;
+       z-index: 100;
+       position: fixed;
+       width: 100%;
+   }
+
+   #nav_bar {
+    font-family: "Industry",Noto Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+    display: block;
+   	background-color: #FFFFFF;
+    height: 60px;
+   }
+   #nav_bar >* {
+     position: relative;
+     z-index: 20;
+   }
+
+   #owl-logo {
+    display: block;
+    float: left;
+     height: 60px;
+     width: 100px;
+   }
+
+   .nav-list {
+       display: table;
+       height: 100%;
+       padding: 0;
+   }
+
+   .nav-item {
+    display: block;
+    float: left;
+     vertical-align: middle;
+ }
+
+ .nav-item:hover .nav-link{
+      color: #ff8900;
+      border-bottom: 3px solid #ff8900;
+  }
+
+ .nav-link {
+    font-size: .875rem;
+    position: relative;
+    display: block;
+    background: #fff;
+    border-left: 1px solid rgba(51,51,51,.06);
+    padding: 0 .625rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 60px;
+    white-space: nowrap;
+    color: #333;
+    transition: background-color 300ms cubic-bezier(.075,.82,.165,1);
+}
+
+/* =============================================================================
    Scrollbar
    ========================================================================== */
 
@@ -64,13 +141,14 @@ body {
 
 /* Track */
 ::-webkit-scrollbar-track {
+    width: 3px;
     background: #333333;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-	border-radius: 3px;
-  background: #888888;
+	 border-radius: 3px;
+   background: #888888;
 }
 
 /* Handle on hover */
@@ -89,4 +167,24 @@ COLORS
 }
 .bg-blue {
   background-color: blue;
+}
+
+
+
+@media (max-width: 768px) {
+    #bt-menu {
+        display: block;
+    }
+    #nav_bar {
+      display: none;
+    }
+}
+
+@media (min-width: 769px) {
+  #bt-menu {
+      display: none;
+  }
+  #nav_bar {
+    display: block;
+  }
 }

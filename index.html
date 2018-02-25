@@ -12,6 +12,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<script src="js/jquery-3.3.1.min.js"></script>
 	</head>
 	<body>
 		<!-- particles.js container -->
@@ -26,6 +27,19 @@
 				<li><a href="#" class="bt-icon icon-bubble"> Contact</a></li>
 			</ul>
 		</nav>
+
+		  <nav id='nav_bar' class="mar40">
+				<div id="owl-logo">
+					<img src="images/OWL-logo.png">
+				</div>
+		    <ul class='nav-list'>
+		      <li class="nav-item"><a class="nav-link" href="url">Nav Bar</a></li>
+		      <li class="nav-item"><a class="nav-link" href="url">Sign In</a></li>
+		      <li class="nav-item"><a class="nav-link" href="url">Blog</a></li>
+		      <li class="nav-item"><a class="nav-link" href="url">About</a></li>
+		    </ul>
+		  </nav>
+
 		<div class="container-fluid">
 			<div class="header">
 				<h2>Robin DUDEK - HeisenBear</h2>
@@ -105,13 +119,31 @@
 		<div class="footer">
 		</div>
 
+		<script>
+		$(function() {
+
+		  $(window).scroll(function () {
+		      //if you hard code, then use console
+		      //.log to determine when you want the
+		      //nav bar to stick.
+		      console.log($(window).scrollTop())
+		    if ($(window).scrollTop() > 40) {
+		      $('#nav_bar').addClass('navbar-fixed').removeClass('mar40');
+		    }
+		    if ($(window).scrollTop() < 41) {
+		      $('#nav_bar').removeClass('navbar-fixed').addClass('mar40');
+		    }
+		  });
+		});
+		</script>
+
+
 		<script src="js/particles.js"></script>
 		<script src="js/app.js"></script>
 
 		<script src="js/classie.js"></script>
 		<script src="js/borderMenu.js"></script>
 
-    <script src="js/jquery-3.3.1.min.js"></script>
 		<script src="js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
